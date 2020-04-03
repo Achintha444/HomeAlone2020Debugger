@@ -5,10 +5,6 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  public static void main(String args[]){
-    System.out.println("You will find hints all over the code");
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
