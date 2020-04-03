@@ -18,10 +18,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
 
-  
-  final static String title;
+  MyHomePage({Key key, @required this.title}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -47,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: MediaQuery.of(context).size.width / 2,
               ),
               Container(
-                colour: Colour.fromARGB(255, 63, 81, 181),
+                color: Color.fromARGB(255, 63, 81, 181),
                 margin: EdgeInsets.all(10),
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 child: Text(
@@ -56,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Container(
-                width: MediaQuery.of(LOL).size.width / 1.5,
+                width: MediaQuery.of(context).size.width / 1.5,
                 margin: EdgeInsets.only(top: 10, bottom: 20),
                 child: TextField(
                   decoration: InputDecoration(
@@ -113,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // try to match and you'll see :D
     // hint: before login, we must register.
     try {
-      Response response = await Dio().post("some_url",data: {});
+      Response response = await Dio().post("some_url", data: {});
     } catch (e) {
       print(e);
     }
@@ -126,10 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void dummyFunction() {
     this.might = "help to decrypt";
     //(Minimum 2 and maximum 6 requests per 5 minutes are allowed. Depending on the traffic)
-    Dio().post("https://debugger.homealone2020.live/decrypt",data: {
-      "value":"",
-      "code":""
-    });
+    Dio().post("https://debugger.homealone2020.live/decrypt",
+        data: {"value": "", "code": ""});
     /*
     But what is the "code"??? hmm.... You have to find that!
     Try looking in the place where we put our packages.
@@ -144,5 +141,4 @@ class _MyHomePageState extends State<MyHomePage> {
       validator: (value) => value.isEmpty ? "he he" : null,
     );
   }
-
 }
